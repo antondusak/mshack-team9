@@ -1,6 +1,8 @@
 name: Task 4
 
-on: 
+on:
+  push: 
+    branches: ["task4"]
   workflow_dispatch: 
 
 jobs:
