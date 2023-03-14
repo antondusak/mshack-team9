@@ -26,8 +26,8 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore ./ Application/Application.csproj
+      run: dotnet restore Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
     - name: Build
-      run: dotnet build Application/Application.csproj
+      run: dotnet build Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
     - name: Test
-      run: dotnet test Application/Application.csproj
+      run: dotnet test Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
