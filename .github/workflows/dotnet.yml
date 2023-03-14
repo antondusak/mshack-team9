@@ -3,6 +3,12 @@
 
 name: .NET
 
+env:
+  registryName: haduongdevopsreg.azurecr.io
+  repositoryName: wth/dotnetcoreapp
+  dockerFolderPath: Application/src/RazorPagesTestSample
+  tag: ${{github.run_number}}
+
 on:
   workflow_dispatch:
   push:
@@ -16,9 +22,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -31,3 +35,21 @@ jobs:
       run: dotnet build Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
     - name: Test
       run: dotnet test Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
+
+
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Docker Login
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ secrets.ACR_LOGIN_SERVER }}
+        username: ${{ secrets.ACR_USERNAME }}
+        password: ${{ secrets.ACR_PASSWORD }}
+    
+    - name: Docker Build
+      run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
+    
+    - name: Docker Push
+      run: docker push $registryName/$repositoryName:$tag
