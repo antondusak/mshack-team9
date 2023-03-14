@@ -1,15 +1,15 @@
 name: Task 5
 
 on:
-  issues:
-    types: [opened]
   workflow_dispatch: 
 
 jobs:
   job1:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
+      - uses: actions/checkout@v3
       - uses: Azure/login@v1    
         with:
             creds: ${{ secrets.AZURE_SERVICEPRINCIPAL_CREDS }}
+      
       
