@@ -1,8 +1,6 @@
 name: Task 4
 
 on:
-  push: 
-    branches: ["task4"]
   issues:
     types: [opened]
   workflow_dispatch: 
