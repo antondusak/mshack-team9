@@ -1,0 +1,21 @@
+name: Task 5
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Azure Login
+        uses: azure/login@v1  
+        with:
+            creds: ${{ secrets.AZURE_SERVICEPRINCIPAL_CREDS }}
+      - name: Run ARM deploy
+        uses: azure/arm-deploy@v1
+        with:
+          subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
+          resourceGroupName: ${{ vars.TEAM9_RESOURCEGROUP }}
+          template: ./ARM-Templates/container-webapp-template.json

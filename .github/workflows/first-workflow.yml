@@ -1,0 +1,23 @@
+name: Task 4
+
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch: 
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps: 
+      - run: echo 'step1'
+      - run: echo 'step2'
+  job2:
+    runs-on: ubuntu-latest
+    needs: [job1]
+    steps: 
+        - uses: mscoutermarsh/cowsays-action@v1
+          with:
+          # What does the cow say?
+            text: hey 
+          # Color of your cow
+            color: red
