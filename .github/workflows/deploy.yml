@@ -7,8 +7,10 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: azure/login@v1   
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Azure Login
+        uses: azure/login@v1   
         with:
             creds: ${{ secrets.AZURE_SERVICEPRINCIPAL_CREDS }}
       
