@@ -3,11 +3,19 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "webAppName": {
+
+            "defaultValue": "zainedevops-dev",
+            "type": "String"
+        },
+        "hostingPlanName": {
+            "defaultValue": "zainedevops-asp",
+
             "defaultValue": "haduongdevops-dev",
             "type": "String"
         },
         "hostingPlanName": {
             "defaultValue": "haduongdevops-asp",
+
             "type": "String"
         },
         "appInsightsLocation": {
@@ -15,7 +23,11 @@
             "type": "String"
         },
         "appInsightsName": {
+
+            "defaultValue": "zainedevops-ai",
+
             "defaultValue": "haduongdevops-ai",
+
             "type": "String"
         },        
         "sku": {
@@ -23,6 +35,13 @@
             "type": "String"
         },
         "registryName": {
+
+            "defaultValue": "zainedevopsreg",
+            "type": "String"
+        },
+        "imageName": {
+            "defaultValue": "zainedevopsimage",
+
             "defaultValue": "haduongdevopsreg",
             "type": "String"
         },
