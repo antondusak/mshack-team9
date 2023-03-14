@@ -4,9 +4,8 @@ on:
   workflow_dispatch: 
 
 jobs:
-  - name: "Job 1"
-  - steps: 
-    - run: 
-      - echo 'step1'
-    - run: 
-      - echo 'step2'
+  job1:
+    runs-on: ubuntu-latest
+    steps: 
+      - run: echo 'step1'
+      - run: echo 'step2'
