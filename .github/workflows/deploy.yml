@@ -1,4 +1,4 @@
-name: Task 5
+name: Deploy ARM
 
 on:
   workflow_dispatch:
