@@ -1,11 +1,21 @@
 name: Task 5
 
 on:
-  workflow_dispatch: 
-
+  workflow_dispatch:
+    inputs:
+      team9_env:
+        description: 'Select environment'     
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - dev
+        - test
+        - prod
 jobs:
   job1:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.team9_env }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
