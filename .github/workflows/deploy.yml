@@ -1,3 +1,19 @@
+
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy code
+        run: |
+          # Add your deploy script here
+=======
 name: Task 5
 
 on:
@@ -29,3 +45,4 @@ jobs:
           subscriptionId: ${{ secrets.SUBSCRIPTION_ID }}
           resourceGroupName: ${{ vars.TEAM9_RESOURCEGROUP }}
           template: ./ARM-Templates/container-webapp-template.json
+
