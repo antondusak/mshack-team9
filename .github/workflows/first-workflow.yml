@@ -1,0 +1,12 @@
+name: Task 4
+
+on: 
+  workflow_dispatch: 
+
+jobs:
+  - name: "Job 1"
+  - steps: 
+    - run: 
+      - echo 'step1'
+    - run: 
+      - echo 'step2'
