@@ -1,5 +1,15 @@
+name: Task 5
 
-  - uses: Azure/login@v1    
-    with:      
-      creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUBSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+on:
+  issues:
+    types: [opened]
+  workflow_dispatch: 
 
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: Azure/login@v1    
+        with:
+            creds: ${{ secrets.AZURE_SERVICEPRINCIPAL_CREDS }}
+      
